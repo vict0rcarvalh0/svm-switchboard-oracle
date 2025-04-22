@@ -1,7 +1,7 @@
 import { OracleJob } from "@switchboard-xyz/common"
 
 const jobs: OracleJob[] = [
-  new OracleJob({
+  OracleJob.create({
     tasks: [
       {
         httpTask: {
