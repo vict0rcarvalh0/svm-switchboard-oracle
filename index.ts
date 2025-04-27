@@ -26,7 +26,7 @@ const jobs: OracleJob[] = [
     }),
 ];
 
-console.log("Running simulation...\n");
+console.log("Running oracle job...\n");
 
 // Print the jobs that are being run.
 const jobJson = JSON.stringify({ jobs: jobs.map((job) => job.toJSON()) });
