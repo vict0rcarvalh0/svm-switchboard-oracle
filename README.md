@@ -3,6 +3,7 @@
 #### Running simulation
 
 ```bash
+cd src/oracle
 bun run simulation.ts
 ```
 
@@ -26,6 +27,8 @@ Response is good (200)
 #### Running the project
 
 ```bash
+cd src/oracle
+
 solana-keygen new --outfile solana-keypair.json 
 
 bun run converter.ts 
