@@ -35,3 +35,11 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # Solana Keypair
 solana-keypair.json
+
+# anchor stuff
+.anchor
+.DS_Store
+target
+**/*.rs.bk
+test-ledger
+.yarn

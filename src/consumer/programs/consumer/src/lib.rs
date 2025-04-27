@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
 use switchboard_on_demand::on_demand::accounts::pull_feed::PullFeedAccountData;
+use solana_program::clock::Clock;
 
 declare_id!("DcobpthTUzWLBt8PPie4C6bzHfZRNY1LGGbz89ANXtUK");
 
@@ -23,10 +24,19 @@ pub mod consumer {
         //     throwSomeError
         // }
 
+        // Get the current clock from the Solana runtime
+        let clock = solana_program::clock::Clock::get().map_err(|_| error!(ErrorCode::ClockError))?;
+
         // Docs at: https://switchboard-on-demand-rust-docs.web.app/on_demand/accounts/pull_feed/struct.PullFeedAccountData.html
         let feed = PullFeedAccountData::parse(feed_account).unwrap();
         // Log the value
-        msg!("price: {:?}", feed.value());
+        msg!("price: {:?}", feed.value(&clock));
         Ok(())
     }
+}
+
+#[error_code]
+pub enum ErrorCode {
+    #[msg("Failed to retrieve the clock.")]
+    ClockError,
 }
