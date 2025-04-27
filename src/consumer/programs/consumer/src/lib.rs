@@ -4,17 +4,17 @@ use solana_program::clock::Clock;
 
 declare_id!("DcobpthTUzWLBt8PPie4C6bzHfZRNY1LGGbz89ANXtUK");
 
-// Include the feed account
+// Feed account
 #[derive(Accounts)]
-pub struct Test<'info> {
-    pub feed: AccountInfo<'info>,
+pub struct Feed<'info> {
+    pub feeFeedcountInfo<'info>,
 }
 
 #[program]
 pub mod consumer {
     use super::*;
 
-    pub fn consume<'a>(ctx: Context<Test>) -> Result<()> {
+    pub fn consume<'a>(ctx: Context<Feed>) -> Result<()> {
 
         // Feed account data
         let feed_account = ctx.accounts.feed.data.borrow();
